@@ -1,5 +1,6 @@
 # StockManagement
-I have put any objective that has not been completed in **
+I have put any objective that has not been completed in italics
+
 You must devise a system to calculate utility bill for customers.
 You can decide the features of your program but, obviously, the more complete (features) your system has then the more likely it is to attract good marks! Some of the core functions of the system are listed below.
 1.	The employee name, contact number, department and relevant data will be stored as customer data.
