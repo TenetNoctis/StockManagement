@@ -17,7 +17,7 @@ public class StockManagement {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int quantity, employeeNumber = 1, itemNumber = 1, choice, exit, repeat;
-        String[] employeeName, itemName, departmentName, dateBorrowed;
+        String[] employeeName, itemName, departmentName, dateBorrowed, dateReceived;
         int[] employeeContact, currentStock;
         employeeName = new String[20];
         employeeContact = new int[20];
@@ -25,11 +25,13 @@ public class StockManagement {
         itemName = new String[20];
         currentStock = new int[20];
         dateBorrowed = new String[20];
+        dateReceived = new String[20];
         exit = 2;
         repeat = 1;
         while (exit == 2) {
             System.out.println("Select a choice:");
-            System.out.println("1) Employee Registration 2) Recieve Inventory 3) Borrow Item 4) Exit");
+            System.out.println("1) Employee Registration 2) Recieve Inventory 3) Borrow Item");
+            System.out.println("4) Employee List         5) Item List         6) Exit");
             choice = scan.nextInt();
                 switch (choice) {
                     case 1:
@@ -54,6 +56,8 @@ public class StockManagement {
                             itemName[itemNumber] = scan.next();
                             System.out.println("Enter quantity of item being recieved");
                             currentStock[itemNumber] = scan.nextInt();
+                            System.out.println("Enter today's date in DD/MM/YYYY format");
+                            dateReceived[itemNumber] = scan.next();
                             System.out.println("The item has now been registered. the item number is "+itemNumber);
                             ++itemNumber;
                             System.out.println("Would you like to register another item");
@@ -92,6 +96,34 @@ public class StockManagement {
                     }       
                         break;
                     case 4:
+                        System.out.println("------------------------------------------------------------------");
+                        System.out.println("The employee list is shown according to the employee number:");
+                        System.out.println("------------------------------------------------------------------");
+                        employeeNumber = 1;
+                        while (employeeName[employeeNumber] != null) {
+                            System.out.println("Employee Number: "+employeeNumber);
+                            System.out.println("Employee Name: "+employeeName[employeeNumber]);
+                            System.out.println("Employee Contact Number: "+employeeContact[employeeNumber]);
+                            System.out.println("Employee Department: "+departmentName[employeeNumber]);
+                            System.out.println("-----------------------------------------");
+                            ++employeeNumber;
+                        }
+                        break;
+                    case 5:
+                        System.out.println("------------------------------------------------------------------");
+                        System.out.println("The item list is shown according to the item number:");
+                        System.out.println("------------------------------------------------------------------");
+                        itemNumber = 1;
+                        while (itemName[itemNumber] != null) {
+                            System.out.println("Item Number: "+itemNumber);
+                            System.out.println("Item Name: "+itemName[itemNumber]);
+                            System.out.println("Item's Current Stock: "+currentStock[itemNumber]);
+                            System.out.println("Date item was last stocked: "+dateReceived[itemNumber]);
+                            System.out.println("-----------------------------------------");
+                            ++itemNumber;
+                        }
+                        break;
+                    case 6:
                         exit = 0;
                         break;
                     default:
