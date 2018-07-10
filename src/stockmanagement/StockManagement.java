@@ -36,11 +36,11 @@ public class StockManagement {
                 switch (choice) {
                     case 1:
                         while (repeat == 1) {
-                            System.out.println("Enter employee name");
+                            System.out.println("Enter employee name:");
                             employeeName[employeeNumber] = scan.next();
-                            System.out.println("Enter employee contact number");
+                            System.out.println("Enter employee contact number:");
                             employeeContact[employeeNumber] = scan.nextInt();
-                            System.out.println("Enter department name");
+                            System.out.println("Enter department name:");
                             departmentName[employeeNumber] = scan.next();
                             System.out.println("Congratulations. You are now registered. Your employee number is "+employeeNumber);
                             ++employeeNumber;
@@ -52,11 +52,11 @@ public class StockManagement {
                         break;
                     case 2:
                         while (repeat == 1) {
-                            System.out.println("Enter item name");
+                            System.out.println("Enter item name:");
                             itemName[itemNumber] = scan.next();
-                            System.out.println("Enter quantity of item being recieved");
+                            System.out.println("Enter quantity of item being recieved:");
                             currentStock[itemNumber] = scan.nextInt();
-                            System.out.println("Enter today's date in DD/MM/YYYY format");
+                            System.out.println("Enter today's date in DD/MM/YYYY format:");
                             dateReceived[itemNumber] = scan.next();
                             System.out.println("The item has now been registered. the item number is "+itemNumber);
                             ++itemNumber;
