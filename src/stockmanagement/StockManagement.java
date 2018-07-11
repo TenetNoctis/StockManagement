@@ -87,7 +87,7 @@ public class StockManagement {
                             System.out.println("| Employee Department: "+departmentName[employeeNumber]);
                             System.out.println("| Item Name: "+itemName[itemNumber]);
                             System.out.println("| Number of items being taken: "+quantity);
-                            System.out.println("Date borrowed: "+dateBorrowed[employeeNumber]);
+                            System.out.println("| Date borrowed: "+dateBorrowed[employeeNumber]);
                             System.out.println("| Current Stock of item: "+currentStock[itemNumber]);
                             currentStock[itemNumber] = currentStock[itemNumber] - quantity;
                             System.out.println("| Stock after the item is borrowed: "+currentStock[itemNumber]);
