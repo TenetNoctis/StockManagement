@@ -72,9 +72,9 @@ public class StockManagement {
                         System.out.println("Enter item number");
                         itemNumber = scan.nextInt();
                         System.out.println("Enter quantity of item required");
+                        quantity = scan.nextInt();
                         System.out.println("Enter today's date in DD/MM/YYYY format");
                         dateBorrowed[employeeNumber] = scan.next();
-                        quantity = scan.nextInt();
                         if (currentStock[itemNumber]<(quantity-1)) {
                             System.out.println("The required quantity of the item requested is not available right now.");
                     }
