@@ -19,13 +19,13 @@ public class StockManagement {
         int quantity, employeeNumber = 1, itemNumber = 1, choice, exit, repeat;
         String[] employeeName, itemName, departmentName, dateBorrowed, dateReceived;
         int[] employeeContact, currentStock;
-        employeeName = new String[20];
-        employeeContact = new int[20];
-        departmentName = new String[20];
-        itemName = new String[20];
-        currentStock = new int[20];
-        dateBorrowed = new String[20];
-        dateReceived = new String[20];
+        employeeName = new String[1000];
+        employeeContact = new int[1000];
+        departmentName = new String[1000];
+        itemName = new String[1000];
+        currentStock = new int[1000];
+        dateBorrowed = new String[1000];
+        dateReceived = new String[1000];
         exit = 2;
         repeat = 1;
         while (exit == 2) {
@@ -134,6 +134,3 @@ public class StockManagement {
     }
 }
     
-
-    
-
