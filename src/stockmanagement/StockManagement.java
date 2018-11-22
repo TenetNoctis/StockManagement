@@ -36,7 +36,7 @@ public class StockManagement {
                 switch (choice) {
                     case 1:
                         while (repeat == 1) {
-                            System.out.println("Enter employee name:");
+                            System.out.println("Enter employee's first name:");
                             employeeName[employeeNumber] = scan.next();
                             System.out.println("Enter employee contact number:");
                             employeeContact[employeeNumber] = scan.nextInt();
