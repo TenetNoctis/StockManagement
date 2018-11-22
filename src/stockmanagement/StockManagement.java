@@ -16,13 +16,16 @@ public class StockManagement {
      */
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int quantity, employeeNumber = 1, itemNumber = 1, choice, exit, repeat;
-        String[] employeeName, itemName, departmentName, dateBorrowed, dateReceived;
-        int[] employeeContact, currentStock;
+        int quantity, employeeNumber = 1, itemNumber = 1, choice, exit, repeat, numberOfEmployees = 0;
+        String departmentNameReport;
+        String[] employeeName, itemName, departmentName, dateBorrowed, dateReceived, itemBorrowed;
+        int[] employeeContact, currentStock, itemBorrowedQuantity;
         employeeName = new String[1000];
         employeeContact = new int[1000];
+        itemBorrowedQuantity = new int[1000];
         departmentName = new String[1000];
         itemName = new String[1000];
+        itemBorrowed = new String [1000];
         currentStock = new int[1000];
         dateBorrowed = new String[1000];
         dateReceived = new String[1000];
@@ -31,7 +34,8 @@ public class StockManagement {
         while (exit == 2) {
             System.out.println("Select a choice:");
             System.out.println("1) Employee Registration 2) Recieve Inventory 3) Borrow Item");
-            System.out.println("4) Employee List         5) Item List         6) Exit");
+            System.out.println("4) Employee List         5) Item List         6) Generate Department Report");
+            System.out.println("7) Exit");
             choice = scan.nextInt();
                 switch (choice) {
                     case 1:
@@ -44,6 +48,7 @@ public class StockManagement {
                             departmentName[employeeNumber] = scan.next();
                             System.out.println("Congratulations. You are now registered. Your employee number is "+employeeNumber);
                             ++employeeNumber;
+                            ++numberOfEmployees;
                             System.out.println("Would you like to register another employee?");
                             System.out.println("Enter 1 for yes and 2 for no");
                             repeat = scan.nextInt();
@@ -67,6 +72,7 @@ public class StockManagement {
                         repeat = 1;
                         break;
                     case 3:
+                        System.out.println("WARNING: Employees are only allowed to borrow one type of item at a time!");
                         System.out.println("Enter employee number");
                         employeeNumber = scan.nextInt();
                         System.out.println("Enter item number");
@@ -86,7 +92,9 @@ public class StockManagement {
                             System.out.println("| Employee Contact Number: "+employeeContact[employeeNumber]);
                             System.out.println("| Employee Department: "+departmentName[employeeNumber]);
                             System.out.println("| Item Name: "+itemName[itemNumber]);
+                            itemBorrowed[employeeNumber] = itemName[itemNumber];
                             System.out.println("| Number of items being taken: "+quantity);
+                            itemBorrowedQuantity[employeeNumber] = quantity;
                             System.out.println("| Date borrowed: "+dateBorrowed[employeeNumber]);
                             System.out.println("| Current Stock of item: "+currentStock[itemNumber]);
                             currentStock[itemNumber] = currentStock[itemNumber] - quantity;
@@ -124,6 +132,26 @@ public class StockManagement {
                         }
                         break;
                     case 6:
+                        System.out.println("Write the name of the department you would like to generate a report for!");
+                        departmentNameReport = scan.next();
+                        employeeNumber = 0;
+                        System.out.println("Employees in "+departmentNameReport);
+                        while (employeeNumber < numberOfEmployees) {
+                            if (departmentNameReport.equals(departmentName[employeeNumber])) {
+                                System.out.print(employeeNumber);
+                                System.out.println(") "+employeeName[employeeNumber]);
+                                System.out.println("Item Borrowed:");
+                                System.out.println("- "+itemBorrowed[employeeNumber]);
+                                System.out.println("Quantity of item borrowed: ");
+                                System.out.println("- "+itemBorrowedQuantity[employeeNumber]);
+                                ++employeeNumber;
+                            }
+                            else {
+                                ++employeeNumber;
+                            }
+                        }
+                        break;
+                    case 7:
                         exit = 0;
                         break;
                     default:
